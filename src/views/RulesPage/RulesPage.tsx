@@ -4,15 +4,14 @@ import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/mate
 import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header'
-import ButtonDivForHomePage from '../../components/ButtonDivForHomePage/ButtonDivForHomePage';
 
 
-export interface HomePageProps {
+export interface RulesPageProps {
     lightDarkMode: string
     setLightDarkMode: Function
 }
 
-export default function HomePage({props} : {props: HomePageProps}) {
+export default function RulesPage({props} : {props: RulesPageProps}) {
     
     const theme = useTheme();
 
@@ -27,11 +26,8 @@ export default function HomePage({props} : {props: HomePageProps}) {
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header props={{ pagename: "", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                    <Header props={{ pagename: "RULES", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
 
-                    <ButtonDivForHomePage props={{ text: "Course Notes", route: "courses"}} />
-
-                    <ButtonDivForHomePage props={{ text: "Rules", route: "rules"}} />
 
                 </Stack>
 

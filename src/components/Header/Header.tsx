@@ -3,6 +3,8 @@ import { Stack, Box, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@
 
 import { LightModeOutlined, DarkModeOutlined } from '@mui/icons-material';
 
+import { useNavigate } from 'react-router-dom';
+
 
 import React, { MouseEventHandler } from 'react';
 
@@ -14,6 +16,7 @@ import { useViewport } from '../../hooks/useViewport';
 export interface HeaderProps {
     lightDarkMode: string
     setLightDarkMode: Function
+    pagename: string
 }
 
 
@@ -24,9 +27,10 @@ export default function Header({props} : {props: HeaderProps}) {
     const { viewportWidth } = useViewport();
     const breakpoint = 910;
 
+    const navigate = useNavigate();
+
     const onHomeButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
-        //setting the steamId will cause the entire page to re-render
-        // props.setSteamId("");
+        navigate("/");
     }
 
     const onLightDarkToggleChange: MouseEventHandler<HTMLElement> = (e) => {
@@ -71,7 +75,7 @@ export default function Header({props} : {props: HeaderProps}) {
                 ?
                 <Typography
                     sx={{
-                        fontSize: '18px',
+                        fontSize: '32px',
                         fontWeight: 'normal', 
                         paddingTop: '16px',
                         width: '400px',
@@ -79,7 +83,7 @@ export default function Header({props} : {props: HeaderProps}) {
                         color: theme.text
                     }}
                 >
-                    (your footgolf caddie. course notes and more)
+                    {props.pagename}
                 </Typography>
                 :
                 <></>

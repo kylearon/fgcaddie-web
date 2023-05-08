@@ -7,12 +7,12 @@ import Header from '../../components/Header/Header'
 import ButtonDivForHomePage from '../../components/ButtonDivForHomePage/ButtonDivForHomePage';
 
 
-export interface HomePageProps {
+export interface CourseNotesPageProps {
     lightDarkMode: string
     setLightDarkMode: Function
 }
 
-export default function HomePage({props} : {props: HomePageProps}) {
+export default function CourseNotesPage({props} : {props: CourseNotesPageProps}) {
     
     const theme = useTheme();
 
@@ -27,11 +27,8 @@ export default function HomePage({props} : {props: HomePageProps}) {
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header props={{ pagename: "", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                    <Header props={{ pagename: "COURSE NOTES", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
 
-                    <ButtonDivForHomePage props={{ text: "Course Notes", route: "courses"}} />
-
-                    <ButtonDivForHomePage props={{ text: "Rules", route: "rules"}} />
 
                 </Stack>
 

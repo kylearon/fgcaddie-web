@@ -10,6 +10,8 @@ import { testTheme, darkTheme, lightTheme } from './theme/Theme';
 import { ThemeProvider } from '@mui/material';
 import { LIGHT_MODE, DARK_MODE } from './utils/constants';
 import HomePage from './views/HomePage/HomePage';
+import CourseNotesPage from './views/CourseNotesPage/CourseNotesPage';
+import RulesPage from './views/RulesPage/RulesPage';
 
 function App() {
 
@@ -41,6 +43,24 @@ function App() {
                 </ThemeProvider>
             }
             // loader={() => { console.log("login page loader"); }}
+            />
+            <Route
+            path="/courses"
+            element={
+                <ThemeProvider 
+                    theme={lightDarkMode}>
+                    <CourseNotesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                </ThemeProvider>
+            }
+            />
+            <Route
+            path="/rules"
+            element={
+                <ThemeProvider 
+                    theme={lightDarkMode}>
+                    <RulesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                </ThemeProvider>
+            }
             />
         </Routes>
         </>
