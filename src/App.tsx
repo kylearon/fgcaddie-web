@@ -11,9 +11,10 @@ import { LIGHT_MODE, DARK_MODE } from './utils/constants';
 import HomePage from './views/HomePage/HomePage';
 import CourseNotesPage from './views/CourseNotesPage/CourseNotesPage';
 import RulesPage from './views/RulesPage/RulesPage';
+import CoursePage from './views/CoursePage/CoursePage';
+
 
 function App() {
-
   
     const [lightDarkMode, setLightDarkMode] = useState(() => {
         //load the saved theme from the localStorage
@@ -38,6 +39,7 @@ function App() {
             }
             // loader={() => { console.log("login page loader"); }}
             />
+
             <Route
             path="/courses"
             element={
@@ -56,6 +58,17 @@ function App() {
                 </ThemeProvider>
             }
             />
+
+            <Route
+            path="/course/:courseId"
+            element={
+                <ThemeProvider 
+                    theme={lightDarkMode}>
+                    <CoursePage props={{lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                </ThemeProvider>
+            }
+            />
+
         </Routes>
         </>
     );

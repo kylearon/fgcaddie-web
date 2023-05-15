@@ -19,58 +19,42 @@ export default function ButtonDivForHomePage({props} : {props: ButtonDivForHomeP
     }
 
     return (
+
         <Stack 
-            direction="row" 
-            spacing={0}
-            
+            spacing={2}
+            onClick={(e) => onButtonDivClick(e)}
             sx={{
+                display: 'flex',
+                height: '64px',
+                width: '100%',
+                backgroundColor: theme.headerBody,
+                paddingTop: '0px',
                 cursor: 'pointer',
+                borderRadius: '12px',
+                "&:hover": {
+                    backgroundColor: theme.headerBodyHover, 
+                }
             }}>
 
 
-            <Stack 
-                direction="row" 
-                spacing={2}
-                onClick={(e) => onButtonDivClick(e)}
-                sx={{
-                    display: 'flex',
-                    height: '64px',
-                    width: '1088px',
-                    backgroundColor: theme.headerBody,
-                    paddingTop: '0px',
-                    "&:hover": {
-                        backgroundColor: theme.headerBodyHover, 
-                    }
-                }}>
-
-
-                <Stack 
-                    direction="column" 
-                    spacing={0}
-                    sx={{
-                        height: 'fit-content',
-                        backgroundColor: theme.transparent,
-                        paddingTop: '2px'
+                <Box 
+                    sx={{ 
+                        justifyContent: 'center' ,
+                        paddingTop: '12px'
                     }}>
 
                     <Typography
-                        textAlign="left"
+                        variant="h5"
                         sx={{
-                            fontWeight: 'bold', 
-                            paddingTop: '12px',
-                            width: 'fill',
-                            fontSize: '22px',
-                            color: theme.text
+                            fontWeight: 'normal',
+                            color: theme.text,
+                            textAlign: 'center'
                         }}
                     >
                         {props.text}
                     </Typography>
-                
 
-                </Stack>
-
-            </Stack>
-
+                </Box>
 
         </Stack>
         

@@ -5,15 +5,21 @@ import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header'
 import ButtonDivForHomePage from '../../components/ButtonDivForHomePage/ButtonDivForHomePage';
-import { useFetchCourses } from '../../hooks/useFetch';
+import { CourseData, useFetchCourse } from '../../hooks/useFetch';
+import { useParams } from 'react-router-dom';
 
 
-export interface CourseNotesPageProps {
+export interface CoursePageProps {
     lightDarkMode: string
     setLightDarkMode: Function
 }
 
-export default function CourseNotesPage({props} : {props: CourseNotesPageProps}) {
+export default function CoursePage({props} : {props: CoursePageProps}) {
+
+    const { courseId } = useParams();
+    console.log("courseId: ",  courseId )
+
+    const [course, setCourse] = useState<CourseData>();
     
     const theme = useTheme();
 
@@ -21,8 +27,20 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
         return true;
     }
 
+    const [showLoading, setShowLoading] = useState<boolean>(true);
+
     //load the courses data
-    const { coursesData, coursesDataError } = useFetchCourses();
+    const { courseData, courseDataError } = useFetchCourse(courseId!!);
+
+    useEffect(() => {
+        console.log("courseData changed");
+        console.log(courseData);
+
+        if(courseData) {
+            setCourse(courseData);
+        }
+
+    },[courseData]);
 
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
@@ -31,19 +49,23 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header props={{ pagename: "COURSE NOTES", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                    <Header props={{ pagename: "COURSE", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
 
                     {
-                        coursesData.map(entry => 
+                        course
+                        ?
+                        course!!.holes.map(hole => 
                             <Box 
                                 sx={{ 
                                     display: 'flex', 
                                     justifyContent: 'center', 
                                 }}
                             >
-                                <ButtonDivForHomePage props={{ text: entry.name, route: "course/" + entry.guid}} />
+                                <ButtonDivForHomePage props={{ text: hole.hole_number, route: "#"}} />
                             </Box>
                         )
+                        :
+                        <></>
                     }
 
 
