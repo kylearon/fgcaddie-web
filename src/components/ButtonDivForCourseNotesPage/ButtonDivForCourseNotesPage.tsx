@@ -28,7 +28,9 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
                 display: 'flex',
                 width: '100%',
                 backgroundColor: theme.headerBody,
-                paddingTop: '0px',
+                paddingTop: '6px',
+                paddingBottom: '6px',
+                paddingLeft: '24px',
                 cursor: 'pointer',
                 borderRadius: '12px',
                 "&:hover": {
@@ -39,8 +41,6 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
                 <Box 
                     sx={{ 
                         justifyContent: 'left' ,
-                        paddingTop: '2px',
-                        paddingLeft: '12px',
                     }}>
                     <Typography
                         sx={{
@@ -57,8 +57,6 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
                 <Box 
                     sx={{ 
                         justifyContent: 'left' ,
-                        paddingTop: '2px',
-                        paddingLeft: '12px',
                     }}>
                     <Typography
                         sx={{
@@ -73,23 +71,21 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
                 </Box>
 
 
-                    <Box 
-                        sx={{ 
-                            justifyContent: 'left' ,
-                            paddingTop: '2px',
-                            paddingLeft: '12px',
-                        }}>
-                        <Typography
-                            sx={{
-                                fontSize: '18px',
-                                fontWeight: 'normal',
-                                color: theme.textLighter,
-                                textAlign: 'left'
-                            }}
-                        >
-                            {props.course.date_created}
-                        </Typography>
-                    </Box>
+                <Box 
+                    sx={{ 
+                        justifyContent: 'left' ,
+                    }}>
+                    <Typography
+                        sx={{
+                            fontSize: '18px',
+                            fontWeight: 'normal',
+                            color: theme.textLighter,
+                            textAlign: 'left'
+                        }}
+                    >
+                        {props.course.date_created}
+                    </Typography>
+                </Box>
 
                 
 
