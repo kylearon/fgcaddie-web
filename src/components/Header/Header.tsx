@@ -49,7 +49,8 @@ export default function Header({props} : {props: HeaderProps}) {
             spacing={1}
             sx={{
                 height: 'fit-content',
-                bgcolor: theme.headerBody
+                bgcolor: theme.headerBody,
+                
             }}>
 
             <Button
@@ -77,7 +78,7 @@ export default function Header({props} : {props: HeaderProps}) {
                     sx={{
                         fontSize: '32px',
                         fontWeight: 'normal', 
-                        paddingTop: '16px',
+                        paddingTop: '8px',
                         width: '400px',
                         minWidth: '400px',
                         color: theme.text
@@ -90,7 +91,13 @@ export default function Header({props} : {props: HeaderProps}) {
 
             }
            
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '510px' }}>
+            <Box 
+                sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'flex-end', 
+                    width: '510px',
+                    paddingBottom: '4px'
+                }}>
                 <ToggleButtonGroup
                     value={props.lightDarkMode}
                     exclusive
