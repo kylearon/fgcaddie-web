@@ -69,6 +69,7 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
                         ?
                         course.holes.map(hole => 
                             <Box 
+                                key={hole.guid}
                                 sx={{ 
                                     display: 'flex', 
                                     justifyContent: 'center', 

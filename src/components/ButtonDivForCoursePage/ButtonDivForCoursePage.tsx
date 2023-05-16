@@ -79,6 +79,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                         ?
                         props.hole!!.shots_tee.map(shot => 
                             <Box
+                                key={shot.guid}
                                 component="img"
                                 sx={{
                                     height: iconHeight,

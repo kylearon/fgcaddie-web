@@ -38,6 +38,7 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
                         ?
                         coursesData.map(course => 
                             <Box 
+                                key={course.guid}
                                 sx={{ 
                                     display: 'flex', 
                                     justifyContent: 'center', 
