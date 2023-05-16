@@ -12,6 +12,7 @@ import HomePage from './views/HomePage/HomePage';
 import CourseNotesPage from './views/CourseNotesPage/CourseNotesPage';
 import RulesPage from './views/RulesPage/RulesPage';
 import CoursePage from './views/CoursePage/CoursePage';
+import HolePage from './views/HolePage/HolePage';
 
 
 function App() {
@@ -65,6 +66,16 @@ function App() {
                 <ThemeProvider 
                     theme={lightDarkMode}>
                     <CoursePage props={{lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                </ThemeProvider>
+            }
+            />
+
+            <Route
+            path="/course/:courseId/hole/:holeNumber"
+            element={
+                <ThemeProvider 
+                    theme={lightDarkMode}>
+                    <HolePage props={{lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }
             />

@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { HoleData } from '../../hooks/useFetch';
 
 export interface ButtonDivForCoursePageProps {
-    hole: HoleData
+    hole: HoleData,
+    route: string
 }
 
 export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCoursePageProps}) {
@@ -26,7 +27,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
     const navigate = useNavigate();
 
     const onButtonDivClick: MouseEventHandler<HTMLDivElement> = (e) => {
-        // navigate("/" + props.route);
+        navigate(props.route);
     }
 
     return (

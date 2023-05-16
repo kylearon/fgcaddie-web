@@ -4,7 +4,7 @@ import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/mate
 import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header'
-import { CourseData, useFetchCourse } from '../../hooks/useFetch';
+import { CourseData, HoleData, useFetchCourse } from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import ButtonDivForCoursePage from '../../components/ButtonDivForCoursePage/ButtonDivForCoursePage';
 
@@ -27,8 +27,6 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
         return true;
     }
 
-    const [showLoading, setShowLoading] = useState<boolean>(true);
-
     //load the courses data
     const { courseData, courseDataError } = useFetchCourse(courseId!!);
 
@@ -41,6 +39,14 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
         }
 
     },[courseData]);
+
+    function getRouteForHole(hole: HoleData): string {
+        if(course) {
+            return "/course/" + course.guid + "/hole/" + hole.hole_number;
+        }
+
+        return "#";
+    }
 
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
@@ -68,7 +74,7 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
                                     justifyContent: 'center', 
                                 }}
                             >
-                                <ButtonDivForCoursePage props={{ hole: hole}} />
+                                <ButtonDivForCoursePage props={{ hole: hole, route: getRouteForHole(hole) }} />
                             </Box>
                         )
                         :
