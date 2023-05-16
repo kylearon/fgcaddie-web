@@ -21,7 +21,7 @@ export default function ButtonDivForHomePage({props} : {props: ButtonDivForHomeP
     return (
 
         <Stack 
-            spacing={2}
+            spacing={0}
             onClick={(e) => onButtonDivClick(e)}
             sx={{
                 display: 'flex',

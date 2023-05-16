@@ -4,8 +4,8 @@ import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/mate
 import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header'
-import ButtonDivForHomePage from '../../components/ButtonDivForHomePage/ButtonDivForHomePage';
 import { useFetchCourses } from '../../hooks/useFetch';
+import ButtonDivForCourseNotesPage from '../../components/ButtonDivForCourseNotesPage/ButtonDivForCourseNotesPage';
 
 
 export interface CourseNotesPageProps {
@@ -31,19 +31,19 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header props={{ pagename: "COURSE NOTES", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                    <Header props={{ pagename: "Courses", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
 
                     {
                         coursesData
                         ?
-                        coursesData.map(entry => 
+                        coursesData.map(course => 
                             <Box 
                                 sx={{ 
                                     display: 'flex', 
                                     justifyContent: 'center', 
                                 }}
                             >
-                                <ButtonDivForHomePage props={{ text: entry.name, route: "course/" + entry.guid}} />
+                                <ButtonDivForCourseNotesPage props={{ course: course, route: "course/" + course.guid}} />
                             </Box>
                         )
                         :
@@ -55,7 +55,6 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
                             <Skeleton variant="rectangular" width={"100%"} height={72} />
                         </Stack>
                     }
-
 
                 </Stack>
 

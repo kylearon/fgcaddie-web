@@ -96,6 +96,7 @@ export interface CourseData {
     guid: string
     name: string
     creator: string
+    date_created: string
     holes: HoleData[]
 }
 
