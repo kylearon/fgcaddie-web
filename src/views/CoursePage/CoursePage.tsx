@@ -65,9 +65,9 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
                     
 
                     {
-                        course
+                        course && course.holes
                         ?
-                        course!!.holes.map(hole => 
+                        course.holes.map(hole => 
                             <Box 
                                 sx={{ 
                                     display: 'flex', 

@@ -34,6 +34,8 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
                     <Header props={{ pagename: "COURSE NOTES", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
 
                     {
+                        coursesData
+                        ?
                         coursesData.map(entry => 
                             <Box 
                                 sx={{ 
@@ -44,6 +46,14 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
                                 <ButtonDivForHomePage props={{ text: entry.name, route: "course/" + entry.guid}} />
                             </Box>
                         )
+                        :
+                        <Stack spacing={2} >
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        </Stack>
                     }
 
 
