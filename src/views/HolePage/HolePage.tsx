@@ -70,7 +70,7 @@ export default function HolePage({props} : {props: HolePageProps}) {
                     {
                         holeNumber
                         ?
-                        <Header props={{ pagename: holeNumber, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                        <Header props={{ pagename: "Hole " + holeNumber, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
                         :
                         <Skeleton variant="rectangular" width={"100%"} height={60} />
                     }
@@ -80,10 +80,13 @@ export default function HolePage({props} : {props: HolePageProps}) {
                         ?
                         hole.shots_tee.map(shot => 
                             <Box
+                                key={shot.guid}
                                 component="img"
                                 sx={{
                                     paddingTop: iconPaddingTop,
-                                    paddingLeft: iconPaddingLeft
+                                    paddingLeft: iconPaddingLeft,
+                                    width: "100%", // Or whatever width you want
+                                    height: "auto" // This will keep the aspect ratio
                                 }}
                                 src={getImageUrl(shot.image_markedup)}
                             />
