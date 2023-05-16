@@ -4,9 +4,9 @@ import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/mate
 import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header'
-import ButtonDivForHomePage from '../../components/ButtonDivForHomePage/ButtonDivForHomePage';
 import { CourseData, useFetchCourse } from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
+import ButtonDivForCoursePage from '../../components/ButtonDivForCoursePage/ButtonDivForCoursePage';
 
 
 export interface CoursePageProps {
@@ -49,7 +49,14 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header props={{ pagename: "COURSE", lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                    {
+                        course
+                        ?
+                        <Header props={{ pagename: course!!.name, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                        :
+                        <Skeleton variant="rectangular" width={"100%"} height={60} />
+                    }
+                    
 
                     {
                         course
@@ -61,11 +68,20 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
                                     justifyContent: 'center', 
                                 }}
                             >
-                                <ButtonDivForHomePage props={{ text: hole.hole_number, route: "#"}} />
+                                <ButtonDivForCoursePage props={{ hole: hole}} />
                             </Box>
                         )
                         :
-                        <></>
+                        <Stack spacing={2} >
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        </Stack>
                     }
 
 
