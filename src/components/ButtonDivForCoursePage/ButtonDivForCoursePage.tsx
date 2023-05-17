@@ -11,10 +11,10 @@ export interface ButtonDivForCoursePageProps {
 
 export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCoursePageProps}) {
 
-    const iconHeight = "44px";
-    const iconWidth = "32px";
-    const iconPaddingTop = "4px";
-    const iconPaddingLeft = "1px";
+    const iconHeight = "88px";
+    const iconWidth = "64px";
+    const iconPaddingTop = "0px";
+    const iconPaddingLeft = "0px";
 
     const awsUrl = "https://fgcaddie.s3.us-east-2.amazonaws.com";
 
@@ -39,7 +39,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                 display: 'flex',
                 width: '100%',
                 maxWidth: '720px',
-                height: '64px',
+                height: 'fit-content',
                 backgroundColor: theme.headerBody,
                 paddingTop: '0px',
                 cursor: 'pointer',
@@ -54,8 +54,10 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                     sx={{ 
                         width: '720px',
                         justifyContent: 'center' ,
-                        paddingTop: '12px',
+                        paddingTop: '6px',
+                        paddingBottom: '6px',
                         paddingLeft: '12px',
+                        
                     }}>
 
                     <Stack 
@@ -65,16 +67,54 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                             height: 'fit-content'
                         }}>
 
-                        <Typography
-                            variant="h5"
+                        
+
+                        <Stack 
+                            direction="column" 
+                            spacing={0}
                             sx={{
-                                fontWeight: 'normal',
-                                color: theme.text,
-                                textAlign: 'center'
-                            }}
-                        >
-                            {props.hole.hole_number}
-                        </Typography>
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}>
+
+                            <Typography
+                                sx={{
+                                    fontSize: '26px',
+                                    fontWeight: 'normal',
+                                    color: theme.text,
+                                    textAlign: 'center',
+                                }}
+                            >
+                                {props.hole.hole_number}
+                            </Typography>
+
+                            <Typography
+                                sx={{
+                                    fontSize: '16px',
+                                    fontWeight: 'normal',
+                                    color: theme.textLighter,
+                                    textAlign: 'left'
+                                }}
+                            >
+                                {"Par " + props.hole.par}
+                            </Typography>
+
+                            
+                            <Typography
+                                sx={{
+                                    fontSize: '16px',
+                                    fontWeight: 'normal',
+                                    color: theme.textLighter,
+                                    textAlign: 'left'
+                                }}
+                            >
+                                {props.hole.length + " yds"}
+                            </Typography>
+
+
+
+                        </Stack>
 
                         {
                         props.hole && props.hole.shots_tee
