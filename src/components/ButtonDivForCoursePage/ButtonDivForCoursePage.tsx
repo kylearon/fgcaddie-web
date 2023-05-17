@@ -37,8 +37,9 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
             onClick={(e) => onButtonDivClick(e)}
             sx={{
                 display: 'flex',
-                height: '64px',
                 width: '100%',
+                maxWidth: '720px',
+                height: '64px',
                 backgroundColor: theme.headerBody,
                 paddingTop: '0px',
                 cursor: 'pointer',
@@ -51,6 +52,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
 
                 <Box 
                     sx={{ 
+                        width: '720px',
                         justifyContent: 'center' ,
                         paddingTop: '12px',
                         paddingLeft: '12px',

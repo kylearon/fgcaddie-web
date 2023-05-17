@@ -27,6 +27,7 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
             sx={{
                 display: 'flex',
                 width: '100%',
+                maxWidth: '720px',
                 backgroundColor: theme.headerBody,
                 paddingTop: '6px',
                 paddingBottom: '6px',

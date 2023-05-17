@@ -51,50 +51,45 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
 
-            <Container maxWidth="lg" sx={{  }} disableGutters={true}>
+            <Stack spacing={2} 
+                sx={{ 
+                    height: '100vh', 
+                    width: 'fill',
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                }}>
 
-                <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
+                {
+                    course
+                    ?
+                    <Header props={{ pagename: course!!.name, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                    :
+                    <Skeleton variant="rectangular" width={"100%"} height={60} />
+                }
+                
 
-                    {
-                        course
-                        ?
-                        <Header props={{ pagename: course!!.name, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
-                        :
-                        <Skeleton variant="rectangular" width={"100%"} height={60} />
-                    }
-                    
-
-                    {
-                        course && course.holes
-                        ?
-                        course.holes.map(hole => 
-                            <Box 
-                                key={hole.guid}
-                                sx={{ 
-                                    display: 'flex', 
-                                    justifyContent: 'center', 
-                                }}
-                            >
-                                <ButtonDivForCoursePage props={{ hole: hole, route: getRouteForHole(hole) }} />
-                            </Box>
-                        )
-                        :
-                        <Stack spacing={2} >
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                            <Skeleton variant="rectangular" width={"100%"} height={72} />
-                        </Stack>
-                    }
+                {
+                    course && course.holes
+                    ?
+                    course.holes.map(hole => 
+                        <ButtonDivForCoursePage props={{ hole: hole, route: getRouteForHole(hole) }} />
+                    )
+                    :
+                    <Stack spacing={2} >
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        <Skeleton variant="rectangular" width={"100%"} height={72} />
+                    </Stack>
+                }
 
 
-                </Stack>
-
-            </Container>
+            </Stack>
 
         </Container>
     );

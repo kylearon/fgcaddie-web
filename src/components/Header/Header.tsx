@@ -49,6 +49,7 @@ export default function Header({props} : {props: HeaderProps}) {
             spacing={1}
             sx={{
                 height: 'fit-content',
+                width: '100%',
                 bgcolor: theme.headerBody,
                 
             }}>
