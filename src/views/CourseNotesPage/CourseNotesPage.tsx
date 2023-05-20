@@ -4,8 +4,9 @@ import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/mate
 import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header'
-import { useFetchCourses } from '../../hooks/useFetch';
+import { useFetchCourses, useFetchCoursesByTag } from '../../hooks/useFetch';
 import ButtonDivForCourseNotesPage from '../../components/ButtonDivForCourseNotesPage/ButtonDivForCourseNotesPage';
+import { useParams } from 'react-router-dom';
 
 
 export interface CourseNotesPageProps {
@@ -14,6 +15,9 @@ export interface CourseNotesPageProps {
 }
 
 export default function CourseNotesPage({props} : {props: CourseNotesPageProps}) {
+
+    const { tag } = useParams();
+    console.log("tag: ",  tag )
     
     const theme = useTheme();
 
@@ -22,7 +26,7 @@ export default function CourseNotesPage({props} : {props: CourseNotesPageProps})
     }
 
     //load the courses data
-    const { coursesData, coursesDataError } = useFetchCourses();
+    const { coursesData, coursesDataError } = useFetchCoursesByTag(tag!!);
 
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>

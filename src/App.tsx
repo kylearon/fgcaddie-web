@@ -33,9 +33,8 @@ function App() {
             <Route
             path="/"
             element={
-                <ThemeProvider 
-                    theme={lightDarkMode}>
-                    <HomePage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                <ThemeProvider theme={lightDarkMode}>
+                    <CourseNotesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }
             // loader={() => { console.log("login page loader"); }}
@@ -44,8 +43,7 @@ function App() {
             <Route
             path="/courses"
             element={
-                <ThemeProvider 
-                    theme={lightDarkMode}>
+                <ThemeProvider theme={lightDarkMode}>
                     <CourseNotesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }
@@ -53,9 +51,17 @@ function App() {
             <Route
             path="/rules"
             element={
-                <ThemeProvider 
-                    theme={lightDarkMode}>
+                <ThemeProvider theme={lightDarkMode}>
                     <RulesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                </ThemeProvider>
+            }
+            />
+
+            <Route
+            path="/:tag"
+            element={
+                <ThemeProvider theme={lightDarkMode}>
+                    <CourseNotesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }
             />
@@ -63,8 +69,7 @@ function App() {
             <Route
             path="/course/:courseId"
             element={
-                <ThemeProvider 
-                    theme={lightDarkMode}>
+                <ThemeProvider theme={lightDarkMode}>
                     <CoursePage props={{lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }
@@ -73,8 +78,7 @@ function App() {
             <Route
             path="/course/:courseId/hole/:holeNumber"
             element={
-                <ThemeProvider 
-                    theme={lightDarkMode}>
+                <ThemeProvider theme={lightDarkMode}>
                     <HolePage props={{lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }

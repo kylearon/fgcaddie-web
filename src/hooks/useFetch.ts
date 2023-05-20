@@ -133,6 +133,22 @@ export const useFetchCourses = () => {
     return {coursesData: validData, coursesDataError: error};
 }
 
+export const useFetchCoursesByTag = (tag: string) => {
+    //create the url to fetch
+    // const fullUrl = LOCAL_API + ROUTE_COURSES + "/" + "?" + PARAM_API_KEY;
+    const fullUrl = RAILWAY_API + ROUTE_COURSES + "/tag/" + tag + "?" + PARAM_API_KEY;
+    
+    //fetch the data
+    const { data, error } = useFetch<CourseData[]>(fullUrl);
+
+    var validData: CourseData[] = [];
+    if(data != undefined) {
+        validData = data;
+    }
+
+    return {coursesData: validData, coursesDataError: error};
+}
+
 export const useFetchCourse = (courseId: string) => {
     //create the url to fetch
     // const fullUrl = LOCAL_API + ROUTE_COURSES + "/" + courseId + "/?" + PARAM_API_KEY;
