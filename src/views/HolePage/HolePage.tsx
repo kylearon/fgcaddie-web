@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header'
 import { CourseData, HoleData, useFetchCourse } from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
+import NoteBox from '../../components/NoteBox/NoteBox';
 
 
 export interface HolePageProps {
@@ -79,17 +80,24 @@ export default function HolePage({props} : {props: HolePageProps}) {
                         hole
                         ?
                         hole.shots_tee.map(shot => 
-                            <Box
-                                key={shot.guid}
-                                component="img"
-                                sx={{
-                                    paddingTop: iconPaddingTop,
-                                    paddingLeft: iconPaddingLeft,
-                                    width: "100%", // Or whatever width you want
-                                    height: "auto" // This will keep the aspect ratio
-                                }}
-                                src={getImageUrl(shot.image_markedup)}
-                            />
+
+                            <Stack spacing={0} sx={{ height: 'fill', width: 'fill' }}>
+
+                                <NoteBox props={{ note: shot.note}}/>
+
+                                <Box
+                                    key={shot.guid}
+                                    component="img"
+                                    sx={{
+                                        paddingTop: iconPaddingTop,
+                                        paddingLeft: iconPaddingLeft,
+                                        width: "100%", // Or whatever width you want
+                                        height: "auto" // This will keep the aspect ratio
+                                    }}
+                                    src={getImageUrl(shot.image_markedup)}
+                                />
+                                
+                            </Stack>
                         )
                         :
                         <Stack spacing={2} >

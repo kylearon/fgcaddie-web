@@ -113,6 +113,7 @@ export interface ShotData {
     guid: string
     type: string
     distance: number
+    note: string
     image_original: string
     image_markedup: string
 }
