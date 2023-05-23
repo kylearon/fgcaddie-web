@@ -13,6 +13,7 @@ import CourseNotesPage from './views/CourseNotesPage/CourseNotesPage';
 import RulesPage from './views/RulesPage/RulesPage';
 import CoursePage from './views/CoursePage/CoursePage';
 import HolePage from './views/HolePage/HolePage';
+import CourseNotesByTagPage from './views/CourseNotesByTagPage/CourseNotesByTagPage';
 
 
 function App() {
@@ -30,15 +31,14 @@ function App() {
     return (
         <>
         <Routes>
-            <Route
+            {/* <Route
             path="/"
             element={
                 <ThemeProvider theme={lightDarkMode}>
                     <CourseNotesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }
-            // loader={() => { console.log("login page loader"); }}
-            />
+            /> */}
 
             <Route
             path="/courses"
@@ -61,7 +61,7 @@ function App() {
             path="/:tag"
             element={
                 <ThemeProvider theme={lightDarkMode}>
-                    <CourseNotesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                    <CourseNotesByTagPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                 </ThemeProvider>
             }
             />

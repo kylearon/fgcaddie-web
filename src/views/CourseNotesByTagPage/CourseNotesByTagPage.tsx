@@ -9,22 +9,24 @@ import ButtonDivForCourseNotesPage from '../../components/ButtonDivForCourseNote
 import { useParams } from 'react-router-dom';
 
 
-export interface CourseNotesPageProps {
+export interface CourseNotesByTagPageProps {
     lightDarkMode: string
     setLightDarkMode: Function
 }
 
-export default function CourseNotesPage({props} : {props: CourseNotesPageProps}) {
+export default function CourseNotesByTagPage({props} : {props: CourseNotesByTagPageProps}) {
 
-    //load all the courses
-    const { coursesData, coursesDataError } = useFetchCourses();
+    const { tag } = useParams();
+    console.log("tag: ",  tag )
+
+    //load the courses data by tag
+    const { coursesData, coursesDataError } = useFetchCoursesByTag(tag!!);
     
     const theme = useTheme();
 
     function getDisableGutter(): boolean {
         return true;
     }
-
 
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
