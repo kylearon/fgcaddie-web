@@ -30,7 +30,7 @@ export default function Header({props} : {props: HeaderProps}) {
     const navigate = useNavigate();
 
     const onHomeButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
-        navigate("/");
+        navigate("/wc2023");
     }
 
     const onLightDarkToggleChange: MouseEventHandler<HTMLElement> = (e) => {

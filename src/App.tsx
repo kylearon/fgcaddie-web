@@ -3,7 +3,7 @@ import './App.css';
 
 import { useState } from 'react';
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import { darkTheme, lightTheme } from './theme/Theme';
 import { ThemeProvider } from '@mui/material';
@@ -14,9 +14,12 @@ import RulesPage from './views/RulesPage/RulesPage';
 import CoursePage from './views/CoursePage/CoursePage';
 import HolePage from './views/HolePage/HolePage';
 import CourseNotesByTagPage from './views/CourseNotesByTagPage/CourseNotesByTagPage';
+import RedirectComponent from './components/RedirectComponent/RedirectComponent';
 
 
 function App() {
+
+    const navigate = useNavigate();
   
     const [lightDarkMode, setLightDarkMode] = useState(() => {
         //load the saved theme from the localStorage
@@ -31,14 +34,14 @@ function App() {
     return (
         <>
         <Routes>
-            {/* <Route
+            <Route
             path="/"
             element={
                 <ThemeProvider theme={lightDarkMode}>
-                    <CourseNotesPage props={{ lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
+                    <RedirectComponent props={{to:"/wc2023"}} />
                 </ThemeProvider>
             }
-            /> */}
+            />
 
             <Route
             path="/courses"
