@@ -19,6 +19,22 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
         navigate("/" + props.route);
     }
 
+    function getCourseYardage() {
+        var yardage = 0;
+        props.course.holes.forEach(hole => {
+            yardage += hole.length;
+        })
+        return yardage;
+    }
+
+    function getCoursePar() {
+        var par = 0;
+        props.course.holes.forEach(hole => {
+            par += hole.par;
+        })
+        return par;
+    }
+
     return (
 
         <Stack 
@@ -55,38 +71,91 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
                     </Typography>
                 </Box>
 
-                <Box 
-                    sx={{ 
-                        justifyContent: 'left' ,
+                <Stack 
+                    spacing={2}
+                    direction={'row'}
+                    sx={{
                     }}>
-                    <Typography
-                        sx={{
-                            fontSize: '18px',
-                            fontWeight: 'normal',
-                            color: theme.textLighter,
-                            textAlign: 'left'
-                        }}
-                    >
-                        {props.course.creator}
-                    </Typography>
-                </Box>
+
+                    
+                    <Box 
+                        sx={{ 
+                            justifyContent: 'left' ,
+                        }}>
+                        <Typography
+                            sx={{
+                                fontSize: '18px',
+                                fontWeight: 'normal',
+                                color: theme.text,
+                                textAlign: 'left'
+                            }}
+                        >
+                            {"PAR " + getCoursePar()}
+                        </Typography>
+                    </Box>
 
 
-                <Box 
-                    sx={{ 
-                        justifyContent: 'left' ,
+                    <Box 
+                        sx={{ 
+                            justifyContent: 'left' ,
+                        }}>
+                        <Typography
+                            sx={{
+                                fontSize: '18px',
+                                fontWeight: 'normal',
+                                color: theme.text,
+                                textAlign: 'left'
+                            }}
+                        >
+                            {getCourseYardage() + " yds"}
+                        </Typography>
+                    </Box>
+
+
+                </Stack>
+
+                <Stack 
+                    spacing={2}
+                    direction={'row'}
+                    sx={{
                     }}>
-                    <Typography
-                        sx={{
-                            fontSize: '18px',
-                            fontWeight: 'normal',
-                            color: theme.textLighter,
-                            textAlign: 'left'
-                        }}
-                    >
-                        {props.course.date_created}
-                    </Typography>
-                </Box>
+
+                    
+                    <Box 
+                        sx={{ 
+                            justifyContent: 'left' ,
+                        }}>
+                        <Typography
+                            sx={{
+                                fontSize: '18px',
+                                fontWeight: 'normal',
+                                color: theme.textLighter,
+                                textAlign: 'left'
+                            }}
+                        >
+                            {props.course.creator}
+                        </Typography>
+                    </Box>
+
+
+                    <Box 
+                        sx={{ 
+                            justifyContent: 'left' ,
+                        }}>
+                        <Typography
+                            sx={{
+                                fontSize: '18px',
+                                fontWeight: 'normal',
+                                color: theme.textLighter,
+                                textAlign: 'left'
+                            }}
+                        >
+                            {props.course.date_created}
+                        </Typography>
+                    </Box>
+
+
+                </Stack>
 
                 
 
