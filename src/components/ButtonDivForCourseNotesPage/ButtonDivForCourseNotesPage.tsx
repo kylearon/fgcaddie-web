@@ -3,6 +3,7 @@ import { Stack, useTheme, Typography, Box } from '@mui/material';
 import React, { MouseEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CourseData } from '../../hooks/useFetch';
+import CourseScorecardView from '../CourseScorecardView/CourseScorecardView';
 
 export interface ButtonDivForCourseNotesPageProps {
     course: CourseData;
@@ -156,6 +157,8 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
 
 
                 </Stack>
+
+                <CourseScorecardView props={{holeStart: 1, course: props.course}}/>
 
                 
 
