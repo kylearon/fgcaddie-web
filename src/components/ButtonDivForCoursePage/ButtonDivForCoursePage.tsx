@@ -6,7 +6,8 @@ import { HoleData } from '../../hooks/useFetch';
 
 export interface ButtonDivForCoursePageProps {
     hole: HoleData,
-    route: string
+    route: string,
+    color: string
 }
 
 export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCoursePageProps}) {
@@ -66,7 +67,6 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                         sx={{
                             height: 'fit-content'
                         }}>
-
                         
 
                         <Stack 
@@ -76,6 +76,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'center',
+                                width: '60px'
                             }}>
 
                             <Typography
@@ -84,6 +85,8 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                                     fontWeight: 'normal',
                                     color: theme.text,
                                     textAlign: 'center',
+                                    borderRadius: '12px',
+                                    backgroundColor: props.color
                                 }}
                             >
                                 {props.hole.hole_number}
@@ -94,7 +97,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                                     fontSize: '16px',
                                     fontWeight: 'normal',
                                     color: theme.textLighter,
-                                    textAlign: 'left'
+                                    textAlign: 'center'
                                 }}
                             >
                                 {"Par " + props.hole.par}
@@ -106,7 +109,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                                     fontSize: '16px',
                                     fontWeight: 'normal',
                                     color: theme.textLighter,
-                                    textAlign: 'left'
+                                    textAlign: 'center'
                                 }}
                             >
                                 {props.hole.length + " yds"}

@@ -73,7 +73,7 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
                     course && course.holes
                     ?
                     course.holes.map(hole => 
-                        <ButtonDivForCoursePage key={hole.guid} props={{ hole: hole, route: getRouteForHole(hole) }} />
+                        <ButtonDivForCoursePage key={hole.guid} props={{ hole: hole, route: getRouteForHole(hole), color: course.color }} />
                     )
                     :
                     <Stack spacing={2} >
