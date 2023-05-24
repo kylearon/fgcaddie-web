@@ -63,67 +63,69 @@ export default function HolePage({props} : {props: HolePageProps}) {
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
 
-            <Container maxWidth="lg" sx={{  }} disableGutters={true}>
+            <Stack spacing={2} 
+                sx={{ 
+                    height: '100vh', 
+                    width: 'fill',
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                }}>
 
-                <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
+                {
+                    holeNumber
+                    ?
+                    <Header props={{ pagename: "Hole " + holeNumber, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
+                    :
+                    <Skeleton variant="rectangular" width={"100%"} height={60} />
+                }
+                
+                {
+                    hole && hole.shots_tee
+                    ?
+                    hole.shots_tee.map(shot => 
 
-                    {
-                        holeNumber
-                        ?
-                        <Header props={{ pagename: "Hole " + holeNumber, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
-                        :
-                        <Skeleton variant="rectangular" width={"100%"} height={60} />
-                    }
-                    
-                    {
-                        hole && hole.shots_tee
-                        ?
-                        hole.shots_tee.map(shot => 
+                        <Stack key={shot.guid} spacing={0} sx={{ height: 'fill', width: 'fill' }}>
 
-                            <Stack key={shot.guid} spacing={0} sx={{ height: 'fill', width: 'fill' }}>
+                            <NoteBox props={{ note: shot.note}}/>
 
-                                <NoteBox props={{ note: shot.note}}/>
-
-                                <Box
-                                    key={shot.guid}
-                                    component="img"
-                                    sx={{
-                                        paddingTop: iconPaddingTop,
-                                        paddingLeft: iconPaddingLeft,
-                                        width: "100%", // Or whatever width you want
-                                        height: "auto" // This will keep the aspect ratio
-                                    }}
-                                    src={getImageUrl(shot.image_markedup)}
-                                />
-                                
-                            </Stack>
-                        )
-                        :
-                        <Box 
-                            sx={{ 
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                width: 'fill',
-                                height: '400px'
-                            }}>
-                            <Typography
+                            <Box
+                                key={shot.guid}
+                                component="img"
                                 sx={{
-                                    fontSize: '24px',
-                                    fontWeight: 'bold',
-                                    color: theme.textLighter,
-                                    textAlign: 'center',
+                                    paddingTop: iconPaddingTop,
+                                    paddingLeft: iconPaddingLeft,
+                                    width: "100%", // Or whatever width you want
+                                    height: "auto" // This will keep the aspect ratio
                                 }}
-                            >
-                                no photos
-                            </Typography>
-                        </Box>
-                    }
+                                src={getImageUrl(shot.image_markedup)}
+                            />
+                            
+                        </Stack>
+                    )
+                    :
+                    <Box 
+                        sx={{ 
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: 'fill',
+                            height: '400px'
+                        }}>
+                        <Typography
+                            sx={{
+                                fontSize: '24px',
+                                fontWeight: 'bold',
+                                color: theme.textLighter,
+                                textAlign: 'center',
+                            }}
+                        >
+                            no photos
+                        </Typography>
+                    </Box>
+                }
 
-
-                </Stack>
-
-            </Container>
+            </Stack>
 
         </Container>
     );
