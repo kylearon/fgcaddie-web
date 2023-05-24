@@ -71,7 +71,7 @@ export default function Header({props} : {props: HeaderProps}) {
                         paddingLeft: '0px',
                         width: '100px',
                         minWidth: '100px',
-                        color: theme.text,
+                        color: theme.textLighter,
                         "&:hover": {
                             backgroundColor: theme.headerBodyHover, 
                         }
