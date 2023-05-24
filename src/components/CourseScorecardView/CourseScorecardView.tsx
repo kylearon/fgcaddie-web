@@ -55,7 +55,7 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
 
 
             <Stack 
-                spacing={2}
+                spacing={1}
                 direction={'row'}
                 sx={{
                 }}>
@@ -77,27 +77,40 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
                         </Typography>
                     </Box>
 
-                    {
-                        getHoleArray().map(num => 
-                            <Box 
-                                key={num}
-                                sx={{ 
-                                    justifyContent: 'center',
-                                }}>
-                                <Typography
-                                    sx={{
-                                        fontSize: {fontSizeContent},
-                                        fontWeight: 'bold',
-                                        color: theme.textLighter,
-                                        textAlign: 'center',
-                                        width: '20px',
-                                    }}
-                                >
-                                    {num}
-                                </Typography>
-                            </Box>
-                        )
-                    }
+                    <Stack 
+                        spacing={2}
+                        direction={'row'}
+                        sx={{
+                            borderRadius: '12px',
+                            paddingLeft: '8px',
+                            paddingRight: '8px',
+                            backgroundColor: props.course.color,
+                        }}>
+
+                        {
+                            getHoleArray().map(num => 
+                                <Box 
+                                    key={num}
+                                    sx={{ 
+                                        justifyContent: 'center',
+                                    }}>
+                                    <Typography
+                                        sx={{
+                                            fontSize: {fontSizeContent},
+                                            fontWeight: 'bold',
+                                            color: theme.textWhite,
+                                            textAlign: 'center',
+                                            width: '20px',
+                                        }}
+                                    >
+                                        {num}
+                                    </Typography>
+                                </Box>
+                            )
+                        }
+
+                    </Stack>
+
 
             </Stack>
 

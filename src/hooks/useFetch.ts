@@ -97,6 +97,9 @@ export interface CourseData {
     name: string
     creator: string
     date_created: string
+    tag: string
+    color: string
+    image: string
     holes: HoleData[]
 }
 

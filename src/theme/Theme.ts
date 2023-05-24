@@ -13,6 +13,7 @@ declare module '@mui/material/styles' {
     transparent: string;
     text: string;
     textLighter: string;
+    textWhite: string;
     toggleBorder: string;
     headerButtonBackground: string;
     deleteButton: string;
@@ -29,6 +30,7 @@ declare module '@mui/material/styles' {
     transparent?: string;
     text?: string;
     textLighter?: string;
+    textWhite?: string;
     toggleBorder?: string;
     headerButtonBackground?: string;
     deleteButton?: string;
@@ -51,6 +53,7 @@ headerBodyAlternate: '#c4c4c4',
 transparent: '#ffffff00',
 text: '#363537',
 textLighter: '#636363',
+textWhite: '#FAFAFA',
 toggleBorder: '#FFF',
 headerButtonBackground: '#6d6d6d',
 deleteButton: '#e40000',
@@ -72,6 +75,7 @@ headerBodyAlternate: '#5a5a5a',
 transparent: '#ffffff00',
 text: '#FAFAFA',
 textLighter: '#cacaca',
+textWhite: '#FAFAFA',
 toggleBorder: '#6B8096',
 headerButtonBackground: '#808080',
 deleteButton: '#e40000',

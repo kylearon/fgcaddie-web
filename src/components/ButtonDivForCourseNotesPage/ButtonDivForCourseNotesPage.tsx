@@ -44,11 +44,12 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
             sx={{
                 display: 'flex',
                 width: '100%',
-                maxWidth: '420px',
+                maxWidth: '398px',
                 backgroundColor: theme.headerBody,
                 paddingTop: '6px',
                 paddingBottom: '6px',
-                paddingLeft: '18px',
+                paddingLeft: '12px',
+                paddingRight: '12px',
                 cursor: 'pointer',
                 borderRadius: '12px',
                 "&:hover": {
