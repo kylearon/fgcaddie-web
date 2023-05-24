@@ -83,7 +83,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                                 sx={{
                                     fontSize: '26px',
                                     fontWeight: 'normal',
-                                    color: theme.text,
+                                    color: theme.textWhite,
                                     textAlign: 'center',
                                     borderRadius: '12px',
                                     backgroundColor: props.color
