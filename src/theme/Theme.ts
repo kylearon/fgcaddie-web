@@ -6,6 +6,7 @@ declare module '@mui/material/styles' {
   interface Theme {
     name: string;
     body: string;
+    headerTitle: string;
     headerBody: string;
     headerBodyHover: string;
     headerBodyAlternate: string;
@@ -21,6 +22,7 @@ declare module '@mui/material/styles' {
   interface ThemeOptions {
     name?: string;
     body?: string;
+    headerTitle?: string;
     headerBody?: string;
     headerBodyHover?: string;
     headerBodyAlternate?: string;
@@ -42,6 +44,7 @@ palette: {
 },
 name: LIGHT_MODE,
 body: '#E2E2E2',
+headerTitle: '#3a9dfa',
 headerBody: '#cfcfcf',
 headerBodyHover: '#b1b1b1',
 headerBodyAlternate: '#c4c4c4',
@@ -62,6 +65,7 @@ palette: {
 },
 name: DARK_MODE,
 body: '#2b2a2c',
+headerTitle: '#3a9dfa',
 headerBody: '#4d4b4e',
 headerBodyHover: '#535155',
 headerBodyAlternate: '#5a5a5a',

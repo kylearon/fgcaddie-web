@@ -6,7 +6,7 @@ import { LightModeOutlined, DarkModeOutlined } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 import { DARK_MODE, LIGHT_MODE } from '../../utils/constants';
@@ -30,6 +30,19 @@ export default function Header({props} : {props: HeaderProps}) {
         navigate("/wc2023");
     }
 
+    const [mode, setMode] = useState(props.lightDarkMode);
+
+    const toggleMode = () => {
+      const newMode = mode === LIGHT_MODE ? DARK_MODE : LIGHT_MODE;
+      setMode(newMode);
+    
+      if (newMode === LIGHT_MODE) {
+        props.setLightDarkMode(lightTheme);
+      } else {
+        props.setLightDarkMode(darkTheme);
+      }
+    };
+
     const onLightDarkToggleChange: MouseEventHandler<HTMLElement> = (e) => {
         const target = e.target as HTMLButtonElement;
         // console.log(target);
@@ -41,97 +54,96 @@ export default function Header({props} : {props: HeaderProps}) {
     }
 
     return (
-        <Stack 
-            direction="row" 
-            spacing={1}
+        <Box
             sx={{
-                height: 'fit-content',
+                display: 'flex',
+                justifyContent: 'center',
                 width: '100%',
                 bgcolor: theme.headerBody,
-                
             }}>
 
-            <Button
-                onClick={(e) => onHomeButtonClicked(e)}
+            <Stack 
+                direction="row" 
+                spacing={1}
                 sx={{
-                    fontSize: '20px',
-                    fontWeight: 'bold', 
-                    paddingTop: '0px',
-                    paddingBottom: '0px',
-                    paddingRight: '0px',
-                    paddingLeft: '0px',
-                    width: '200px',
-                    minWidth: '200px',
-                    color: theme.text
-                }}
-            >
-                fgcaddie
-            </Button>
-
-           
-            <Typography
-                sx={{
-                    fontSize: '32px',
-                    fontWeight: 'normal', 
-                    paddingTop: '8px',
-                    width: '200px',
-                    minWidth: '200px',
-                    color: theme.text
-                }}
-            >
-                {props.pagename}
-            </Typography>
-           
-            <Box 
-                sx={{ 
-                    display: 'flex', 
-                    justifyContent: 'flex-end', 
-                    paddingBottom: '4px'
+                    height: 'fit-content',
+                    bgcolor: theme.headerBody,
+                    width: '420px'
                 }}>
-                <ToggleButtonGroup
-                    value={props.lightDarkMode}
-                    exclusive
-                    onChange={(e) => onLightDarkToggleChange(e)}
+
+                <Button
+                    onClick={(e) => onHomeButtonClicked(e)}
                     sx={{
-                        height: '50px',
-                        paddingTop: '6px',
-                        paddingRight: '24px'
+                        fontSize: '16px',
+                        fontWeight: 'bold', 
+                        paddingTop: '0px',
+                        paddingBottom: '0px',
+                        paddingRight: '0px',
+                        paddingLeft: '0px',
+                        width: '100px',
+                        minWidth: '100px',
+                        color: theme.text,
+                        "&:hover": {
+                            backgroundColor: theme.headerBodyHover, 
+                        }
                     }}
                 >
-                    <ToggleButton 
-                        value={LIGHT_MODE}
-                        aria-label={LIGHT_MODE}
-                        sx={{
-                            width: '64px',
-                            paddingTop: '6px'
-                        }}
-                    >
-                        <LightModeOutlined 
-                            sx={{ 
-                                pointerEvents: 'none',
-                                color: theme.text
-                            }}
-                        />
-                    </ToggleButton>
-                    <ToggleButton 
-                        value={DARK_MODE} 
-                        aria-label={DARK_MODE}
-                        sx={{
-                            width: '64px',
-                            paddingTop: '6px'
-                        }}
-                    >
-                        <DarkModeOutlined 
-                            sx={{ 
-                                pointerEvents: 'none',
-                                color: theme.text
-                            }}
-                        />
-                    </ToggleButton>
-                </ToggleButtonGroup>
-            </Box> 
+                    fgcaddie
+                </Button>
 
-        </Stack>
+            
+                <Typography
+                    sx={{
+                        fontSize: '24px',
+                        fontWeight: 'normal', 
+                        paddingTop: '8px',
+                        paddingLeft: '8px',
+                        width: '240px',
+                        minWidth: '240px',
+                        color: theme.text
+                    }}
+                >
+                    {props.pagename}
+                </Typography>
+            
+                <Box 
+                    sx={{ 
+                        display: 'flex', 
+                        justifyContent: 'center', 
+                        alignItems: 'center',
+                        paddingBottom: '4px'
+                    }}>
+                    
+                    <Button
+                        onClick={toggleMode}
+                        sx={{
+                            height: '50px',
+                            width: '50px',
+                        }}
+                        >
+                        {mode === LIGHT_MODE ? (
+                            <LightModeOutlined
+                            sx={{
+                                pointerEvents: 'none',
+                                color: theme.text,
+                            }}
+                            />
+                        ) : (
+                            <DarkModeOutlined
+                            sx={{
+                                pointerEvents: 'none',
+                                color: theme.text,
+                            }}
+                            />
+                        )}
+
+
+                    </Button>
+
+                </Box> 
+
+            </Stack>
+        </Box>
         
     )
 }
