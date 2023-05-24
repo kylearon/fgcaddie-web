@@ -47,7 +47,7 @@ export default function CourseNotesByTagPage({props} : {props: CourseNotesByTagP
                     coursesData
                     ?
                     coursesData.map(course => 
-                        <ButtonDivForCourseNotesPage props={{ course: course, route: "course/" + course.guid}} />
+                        <ButtonDivForCourseNotesPage key={course.guid} props={{ course: course, route: "course/" + course.guid}} />
                     )
                     :
                     <Stack spacing={2} >

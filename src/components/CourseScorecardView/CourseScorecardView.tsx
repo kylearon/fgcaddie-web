@@ -13,16 +13,34 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
 
     const theme = useTheme();
 
-    function getHoleArray() {
-        return [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+    const fontSizeTitle = "16px";
+    const fontSizeContent = "16px";
 
-        // if(props.holeStart == 1) {
-        //     return [1,2,3,4,5,6,7,8,9];
-        // }
-        // else if(props.holeStart == 10) {
-        //     return [10,11,12,13,14,15,16,17,18];
-        // }
-        // return[];
+    var parId = 0;
+    var yardsId = 0;
+
+    function getHoleArray() {
+        // return [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+
+        if(props.holeStart == 1) {
+            return [1,2,3,4,5,6,7,8,9];
+        }
+        else if(props.holeStart == 10) {
+            return [10,11,12,13,14,15,16,17,18];
+        }
+        return[];
+    }
+
+    function getScorecardParArray() {
+        const scorecardParArray: number[] = [];
+        props.course.holes.forEach(hole => parseInt(hole.hole_number) >= props.holeStart && parseInt(hole.hole_number) < props.holeStart + 9  ? scorecardParArray.push(hole.par) : "")
+        return scorecardParArray;
+    }
+
+    function getScorecardYardsArray() {
+        const scorecardYardsArray: number[] = [];
+        props.course.holes.forEach(hole => parseInt(hole.hole_number) >= props.holeStart && parseInt(hole.hole_number) < props.holeStart + 9 ? scorecardYardsArray.push(hole.length) : "")
+        return scorecardYardsArray;
     }
 
     return (
@@ -50,7 +68,7 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
                         }}>
                         <Typography
                             sx={{
-                                fontSize: '16px',
+                                fontSize: {fontSizeTitle},
                                 fontWeight: 'bold',
                                 color: theme.textLighter,
                                 textAlign: 'left',
@@ -64,12 +82,13 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
                     {
                         getHoleArray().map(num => 
                             <Box 
+                                key={num}
                                 sx={{ 
                                     justifyContent: 'center',
                                 }}>
                                 <Typography
                                     sx={{
-                                        fontSize: '14px',
+                                        fontSize: {fontSizeContent},
                                         fontWeight: 'bold',
                                         color: theme.textLighter,
                                         textAlign: 'center',
@@ -98,7 +117,7 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
                         }}>
                         <Typography
                             sx={{
-                                fontSize: '16px',
+                                fontSize: {fontSizeTitle},
                                 fontWeight: 'bold',
                                 color: theme.textLighter,
                                 textAlign: 'left',
@@ -110,21 +129,22 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
                     </Box>
 
                     {
-                        props.course.holes.map(hole =>
+                        getScorecardParArray().map(par =>
                             <Box 
+                                key={parId++}
                                 sx={{ 
                                     justifyContent: 'center',
                                 }}>
                                 <Typography
                                     sx={{
-                                        fontSize: '14px',
+                                        fontSize: {fontSizeContent},
                                         fontWeight: 'bold',
                                         color: theme.textLighter,
                                         textAlign: 'center',
                                         width: '20px',
                                     }}
                                 >
-                                    {hole.par}
+                                    {par}
                                 </Typography>
                             </Box>
                         )
@@ -146,7 +166,7 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
                         }}>
                         <Typography
                             sx={{
-                                fontSize: '16px',
+                                fontSize: {fontSizeTitle},
                                 fontWeight: 'bold',
                                 color: theme.textLighter,
                                 textAlign: 'left',
@@ -158,21 +178,22 @@ export default function CourseScorecardView({props} : {props: CourseScorecardVie
                     </Box>
 
                     {
-                        props.course.holes.map(hole =>
+                        getScorecardYardsArray().map(yards =>
                             <Box 
+                                key={yardsId++}
                                 sx={{ 
                                     justifyContent: 'center',
                                 }}>
                                 <Typography
                                     sx={{
-                                        fontSize: '14px',
+                                        fontSize: {fontSizeContent},
                                         fontWeight: 'bold',
                                         color: theme.textLighter,
                                         textAlign: 'center',
                                         width: '20px',
                                     }}
                                 >
-                                    {hole.length}
+                                    {yards}
                                 </Typography>
                             </Box>
                         )

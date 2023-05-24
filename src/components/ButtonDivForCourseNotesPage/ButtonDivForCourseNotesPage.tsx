@@ -44,11 +44,11 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
             sx={{
                 display: 'flex',
                 width: '100%',
-                maxWidth: '720px',
+                maxWidth: '420px',
                 backgroundColor: theme.headerBody,
                 paddingTop: '6px',
                 paddingBottom: '6px',
-                paddingLeft: '24px',
+                paddingLeft: '12px',
                 cursor: 'pointer',
                 borderRadius: '12px',
                 "&:hover": {
@@ -159,6 +159,7 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
                 </Stack>
 
                 <CourseScorecardView props={{holeStart: 1, course: props.course}}/>
+                <CourseScorecardView props={{holeStart: 10, course: props.course}}/>
 
                 
 
