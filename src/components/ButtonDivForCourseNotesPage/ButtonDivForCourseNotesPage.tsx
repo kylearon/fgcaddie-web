@@ -48,7 +48,7 @@ export default function ButtonDivForCourseNotesPage({props} : {props: ButtonDivF
                 backgroundColor: theme.headerBody,
                 paddingTop: '6px',
                 paddingBottom: '6px',
-                paddingLeft: '12px',
+                paddingLeft: '18px',
                 cursor: 'pointer',
                 borderRadius: '12px',
                 "&:hover": {

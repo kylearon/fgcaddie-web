@@ -1,8 +1,6 @@
 
 import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/material';
 
-import { useEffect, useState } from 'react';
-
 import Header from '../../components/Header/Header'
 import { useFetchCourses, useFetchCoursesByTag } from '../../hooks/useFetch';
 import ButtonDivForCourseNotesPage from '../../components/ButtonDivForCourseNotesPage/ButtonDivForCourseNotesPage';
@@ -17,7 +15,6 @@ export interface CourseNotesByTagPageProps {
 export default function CourseNotesByTagPage({props} : {props: CourseNotesByTagPageProps}) {
 
     const { tag } = useParams();
-    console.log("tag: ",  tag )
 
     //load the courses data by tag
     const { coursesData, coursesDataError } = useFetchCoursesByTag(tag!!);

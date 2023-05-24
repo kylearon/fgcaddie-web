@@ -25,11 +25,12 @@ export default function HolePage({props} : {props: HolePageProps}) {
     const { courseId } = useParams();
     // console.log("courseId: ",  courseId );
 
-    const [course, setCourse] = useState<CourseData>();
-    const [hole, setHole] = useState<HoleData>();
-
     const { holeNumber } = useParams();
     // console.log("holeNumber: ",  holeNumber );
+
+    
+    const [course, setCourse] = useState<CourseData>();
+    const [hole, setHole] = useState<HoleData>();
     
     //load the courses data
     const { courseData, courseDataError } = useFetchCourse(courseId!!);
@@ -50,8 +51,6 @@ export default function HolePage({props} : {props: HolePageProps}) {
     },[courseData]);
     
 
-    const iconHeight = "44px";
-    const iconWidth = "32px";
     const iconPaddingTop = "4px";
     const iconPaddingLeft = "1px";
 
@@ -77,11 +76,11 @@ export default function HolePage({props} : {props: HolePageProps}) {
                     }
                     
                     {
-                        hole
+                        hole && hole.shots_tee
                         ?
                         hole.shots_tee.map(shot => 
 
-                            <Stack spacing={0} sx={{ height: 'fill', width: 'fill' }}>
+                            <Stack key={shot.guid} spacing={0} sx={{ height: 'fill', width: 'fill' }}>
 
                                 <NoteBox props={{ note: shot.note}}/>
 
@@ -100,15 +99,26 @@ export default function HolePage({props} : {props: HolePageProps}) {
                             </Stack>
                         )
                         :
-                        <Stack spacing={2} >
-                            <Skeleton variant="rectangular" width={"100%"} height={500} />
-                            <Skeleton variant="rectangular" width={"100%"} height={500} />
-                            <Skeleton variant="rectangular" width={"100%"} height={500} />
-                            <Skeleton variant="rectangular" width={"100%"} height={500} />
-                            <Skeleton variant="rectangular" width={"100%"} height={500} />
-                        </Stack>
+                        <Box 
+                            sx={{ 
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: 'fill',
+                                height: '400px'
+                            }}>
+                            <Typography
+                                sx={{
+                                    fontSize: '24px',
+                                    fontWeight: 'bold',
+                                    color: theme.textLighter,
+                                    textAlign: 'center',
+                                }}
+                            >
+                                no photos
+                            </Typography>
+                        </Box>
                     }
-
 
 
                 </Stack>

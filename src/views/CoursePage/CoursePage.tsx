@@ -17,7 +17,7 @@ export interface CoursePageProps {
 export default function CoursePage({props} : {props: CoursePageProps}) {
 
     const { courseId } = useParams();
-    console.log("courseId: ",  courseId )
+    // console.log("courseId: ",  courseId )
 
     const [course, setCourse] = useState<CourseData>();
     
@@ -31,8 +31,8 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
     const { courseData, courseDataError } = useFetchCourse(courseId!!);
 
     useEffect(() => {
-        console.log("courseData changed");
-        console.log(courseData);
+        // console.log("courseData changed");
+        // console.log(courseData);
 
         if(courseData) {
             setCourse(courseData);
@@ -73,7 +73,7 @@ export default function CoursePage({props} : {props: CoursePageProps}) {
                     course && course.holes
                     ?
                     course.holes.map(hole => 
-                        <ButtonDivForCoursePage props={{ hole: hole, route: getRouteForHole(hole) }} />
+                        <ButtonDivForCoursePage key={hole.guid} props={{ hole: hole, route: getRouteForHole(hole) }} />
                     )
                     :
                     <Stack spacing={2} >

@@ -38,7 +38,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
             sx={{
                 display: 'flex',
                 width: '100%',
-                maxWidth: '720px',
+                maxWidth: '420px',
                 height: 'fit-content',
                 backgroundColor: theme.headerBody,
                 paddingTop: '0px',
@@ -52,7 +52,7 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
 
                 <Box 
                     sx={{ 
-                        width: '720px',
+                        width: '420px',
                         justifyContent: 'center' ,
                         paddingTop: '6px',
                         paddingBottom: '6px',
@@ -133,7 +133,24 @@ export default function ButtonDivForCoursePage({props} : {props: ButtonDivForCou
                             />
                         )
                         :
-                        <></>
+                        <Box 
+                            sx={{ 
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: '280px'
+                            }}>
+                            <Typography
+                                sx={{
+                                    fontSize: '24px',
+                                    fontWeight: 'bold',
+                                    color: theme.textLighter,
+                                    textAlign: 'center',
+                                }}
+                            >
+                                no photos
+                            </Typography>
+                        </Box>
                     }
 
                     </Stack>

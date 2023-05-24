@@ -27,7 +27,7 @@ export default function ButtonDivForHomePage({props} : {props: ButtonDivForHomeP
                 display: 'flex',
                 height: '64px',
                 width: '100%',
-                maxWidth: '720px',
+                maxWidth: '420px',
                 backgroundColor: theme.headerBody,
                 paddingTop: '0px',
                 cursor: 'pointer',

@@ -24,9 +24,6 @@ export default function Header({props} : {props: HeaderProps}) {
 
     const theme = useTheme();
 
-    const { viewportWidth } = useViewport();
-    const breakpoint = 910;
-
     const navigate = useNavigate();
 
     const onHomeButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -63,40 +60,32 @@ export default function Header({props} : {props: HeaderProps}) {
                     paddingBottom: '0px',
                     paddingRight: '0px',
                     paddingLeft: '0px',
-                    width: '230px',
-                    minWidth: '230px',
+                    width: '200px',
+                    minWidth: '200px',
                     color: theme.text
                 }}
-                //monospace text generated here: https://tools.picsart.com/text/font-generator/
             >
                 fgcaddie
             </Button>
 
-            {
-                viewportWidth >= breakpoint
-                ?
-                <Typography
-                    sx={{
-                        fontSize: '32px',
-                        fontWeight: 'normal', 
-                        paddingTop: '8px',
-                        width: '400px',
-                        minWidth: '400px',
-                        color: theme.text
-                    }}
-                >
-                    {props.pagename}
-                </Typography>
-                :
-                <></>
-
-            }
+           
+            <Typography
+                sx={{
+                    fontSize: '32px',
+                    fontWeight: 'normal', 
+                    paddingTop: '8px',
+                    width: '200px',
+                    minWidth: '200px',
+                    color: theme.text
+                }}
+            >
+                {props.pagename}
+            </Typography>
            
             <Box 
                 sx={{ 
                     display: 'flex', 
                     justifyContent: 'flex-end', 
-                    width: '510px',
                     paddingBottom: '4px'
                 }}>
                 <ToggleButtonGroup
