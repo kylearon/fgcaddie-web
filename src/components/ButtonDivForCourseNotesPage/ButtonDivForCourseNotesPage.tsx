@@ -1,6 +1,6 @@
 import { Stack, useTheme, Typography, Box } from '@mui/material';
 
-import React, { MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CourseData } from '../../hooks/useFetch';
 import CourseScorecardView from '../CourseScorecardView/CourseScorecardView';

@@ -1,7 +1,5 @@
 
-import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/material';
-
-import { useEffect, useState } from 'react';
+import { Container, Stack, useTheme } from '@mui/material';
 
 import Header from '../../components/Header/Header'
 import ButtonDivForHomePage from '../../components/ButtonDivForHomePage/ButtonDivForHomePage';

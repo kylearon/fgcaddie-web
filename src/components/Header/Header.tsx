@@ -1,17 +1,16 @@
 
-import { Stack, Box, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { Stack, Box, useTheme, Button } from '@mui/material';
 
 import { LightModeOutlined, DarkModeOutlined } from '@mui/icons-material';
 
 import { useNavigate } from 'react-router-dom';
 
 
-import React, { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 import { DARK_MODE, LIGHT_MODE } from '../../utils/constants';
 import { darkTheme, lightTheme } from '../../theme/Theme';
-import { useViewport } from '../../hooks/useViewport';
 
 export interface HeaderProps {
     lightDarkMode: string
@@ -42,16 +41,6 @@ export default function Header({props} : {props: HeaderProps}) {
         props.setLightDarkMode(darkTheme);
       }
     };
-
-    const onLightDarkToggleChange: MouseEventHandler<HTMLElement> = (e) => {
-        const target = e.target as HTMLButtonElement;
-        // console.log(target);
-        if(target.value === LIGHT_MODE) {
-            props.setLightDarkMode(lightTheme);
-        } else {
-            props.setLightDarkMode(darkTheme);
-        }
-    }
 
     return (
         <Box

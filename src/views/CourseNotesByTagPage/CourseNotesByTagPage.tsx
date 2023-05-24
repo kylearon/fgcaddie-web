@@ -1,8 +1,8 @@
 
-import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/material';
+import { Container, Skeleton, Stack, useTheme } from '@mui/material';
 
 import Header from '../../components/Header/Header'
-import { useFetchCourses, useFetchCoursesByTag } from '../../hooks/useFetch';
+import { useFetchCoursesByTag } from '../../hooks/useFetch';
 import ButtonDivForCourseNotesPage from '../../components/ButtonDivForCourseNotesPage/ButtonDivForCourseNotesPage';
 import { useParams } from 'react-router-dom';
 

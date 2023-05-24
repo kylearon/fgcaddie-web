@@ -1,8 +1,6 @@
 import { Stack, useTheme, Typography, Box } from '@mui/material';
 
-import React, { MouseEventHandler } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { CourseData, HoleData } from '../../hooks/useFetch';
+import { CourseData } from '../../hooks/useFetch';
 
 export interface CourseScorecardViewProps {
     holeStart: number,
