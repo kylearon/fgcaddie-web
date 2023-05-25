@@ -83,7 +83,7 @@ export default function Header({props} : {props: HeaderProps}) {
             
                 <Typography
                     sx={{
-                        fontSize: '24px',
+                        fontSize: '20px',
                         fontWeight: 'normal', 
                         paddingTop: '8px',
                         paddingLeft: '8px',
