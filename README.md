@@ -1,6 +1,9 @@
 # fgcaddie-web
 A FootGolf Caddie app for web browsers.
 
+Hosted on GitHub pages here: https://kylearon.github.io/fgcaddie-web/
+
+
 ## Dependencies
 
 create the react app with typescript
